@@ -1,0 +1,7 @@
+
+# Ignora a pasta .git, cria no init
+.git
+
+# Ignora arquivo .env
+.env
+

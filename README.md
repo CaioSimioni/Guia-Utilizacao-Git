@@ -3,9 +3,15 @@
 ## Índece
 
 1. [O que é Git?](#o-que-e-git)
-2. [Instalção](#instalacao)
-3. [Conffigurando o Git](#conf-git)
+2. [Instalação](#instalacao)
+3. [Configurando o Git](#conf-git)
 4. [Criar/Clonar um Repositório](#criar-clonar-repo)
+5. [Fluxo de Trabalho](#fluxo-de-trabalho)
+6. [Alterações - Adicionar e Confirmar](#add-commit)
+7. [Repositório Remoto](#repo-remoto)
+8. [Ramificações](#ramos)
+9. [Atualizar o Repositório](#atualizar-repo)
+
 - [Referências](#refe)
 
 <div id="o-que-e-git" />
@@ -46,6 +52,76 @@ Você também pode clonar um repositório que já existe com: <br>
 Clonar um repositório remoto: <br>
 `$ git clone http://url.com` ou `$ git clone user@host:/caminho/repositorio` <br>
 
+<div id="fluxo-trabalho"/>
+
+## Fluxo de Trabalho
+
+O Git funciona com 3 "áreas" sendo elas: <br>
+**Diretório de Trabalho** -> contém os arquivos vigentes. <br>
+**Index(Stage)** -> área temporária. <br>
+**HEAD** -> último commit. <br>
+
+Diretório de trabalho (add)-> Index (commit)-> HEAD
+
+<div id="add-commit"/>
+
+## Alterações - Adicionar e Confirmar
+
+Sempre antes de fazermos de fato uma alteração é bom usar o comando: <br>
+`$ git status` <br>
+Que mostrará todas as alterações feitas. <br>
+
+Para adcionar uma mudança ao Index usamos: <br>
+`$ git add <arquivo>` ou `$ git add *`<br>
+
+**ATENÇÃO!** - Lembre de usar o arquivo `.gitignore` para dizer ao git o que **Não será adicionado/ignorado** principalmente com arquivos `.env` ou configurações que tenham senhas/chaves/tokens ou qualquer outra coisa que **Não deve ser compartilhada!**<br>
+
+Para confirmar as alterações fazemos um commit: <br>
+`$ git commit -m "Descrição da alteração"` <br>
+
+Agora nossas mudanças estão no HEAD, mas ainda não foram para o **Repositório remoto**. <br>
+
+<div id="repo-remoto" />
+
+## Repositório Remoto
+
+Caso não tenha clonado um repositório existente, precisa conectar seu repositório. <br>
+`$ git remote add origin <servidor ou url>` <br>
+
+Para enviar alterações ao repositório remoto, use: <br>
+`$ git push origin main`, obs: **main** é o nome da Branch (ramo) do projeto, podendo ser também a **master**. <br>
+
+<div id="ramos" />
+
+## Ramificações
+
+Branches ("Ramos") são utilizados para desenvolver funcionalidades, corrigir bugs, implementar novas versões isoladas umas das outras. A branch **main** ou **master** é a branch padrão de qualquer projeto. <br>
+
+Criando uma branch: <br>
+`$ git checkout -b funcionalidade_xyz`<br>
+
+Retorne ao main com: <br>
+`$ git checkout main` <br>
+
+Remova uma Branch com: <br>
+`$ git branch -d funcionalidade_xyz`
+
+Uma branch não é disponível para outros a não ser que você disponibilize ela para os outros: <br>
+`$ git push origin funcionalidade_xyz` <br>
+
+<div id="atualizar-repo" />
+
+## Atualizar o Repositório
+
+Para atualizar seu repositório local, use: <br>
+`$ git pull` <br>
+
+Antes de fazer merge, podemos pré-vizualizar as alterações com: <br>
+`$ git diff <branch origem> <branch destino>`
+
+Para fazer merge da sua branch com sua branch ativa, use: <br>
+`$ git merge <branch>`
+
 <div id="refe" />
 
 ## Referências
@@ -54,4 +130,4 @@ Clonar um repositório remoto: <br>
 [GIT Tutorial Para Iniciantes](https://www.hostinger.com.br/tutoriais/tutorial-do-git-basics-introducao)<br>
 [Entendendo GIT | (não é um tutorial!)](https://youtu.be/6Czd1Yetaac?si=NVYGp4dz8LCFuDX1)<br>
 [Protegendo e Recuperando Dados Perdidos - Git, Backup, BTRFS](https://youtu.be/yfEhz9poqW8?si=ixbhgXMLlS6o8HM0)<br>
-
+[Git - Guia prático](https://rogerdudler.github.io/git-guide/index.pt_BR.html)<br>
