@@ -98,10 +98,10 @@ Para enviar alterações ao repositório remoto, use: <br>
 Branches ("Ramos") são utilizados para desenvolver funcionalidades, corrigir bugs, implementar novas versões isoladas umas das outras. A branch **main** ou **master** é a branch padrão de qualquer projeto. <br>
 
 Criando uma branch: <br>
-`$ git checkout -b funcionalidade_xyz`<br>
+`$ git branch funcionalidade_xyz`<br>
 
 Retorne ao main com: <br>
-`$ git checkout main` <br>
+`$ git switch main` <br>
 
 Remova uma Branch com: <br>
 `$ git branch -d funcionalidade_xyz`
@@ -120,7 +120,7 @@ Antes de fazer merge, podemos pré-vizualizar as alterações com: <br>
 `$ git diff <branch origem> <branch destino>`
 
 Para fazer merge da sua branch com sua branch ativa, use: <br>
-`$ git merge <branch>`
+`(main)$ git merge funcionalidade_xyz`
 
 <div id="refe" />
 
